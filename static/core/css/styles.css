@@ -1,0 +1,126 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f9f9f9;
+    color: #222;
+    line-height: 1.5;
+}
+
+/* === Header & Navigation === */
+header {
+    background-color: #0d3b66;
+    color: #fff;
+    padding: 1rem 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo h1 {
+    font-size: 1.5rem;
+}
+
+#nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+#nav-links a:hover {
+    background-color: #145ea8;
+}
+
+/* === Hero Section === */
+#hero {
+    background: linear-gradient(rgba(13, 59, 102, 0.85), rgba(13, 59, 102, 0.85)),
+                url("../images/sports-bg.jpg") center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+#hero h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+}
+
+#get-started-button {
+    background-color: #ffb703;
+    color: #222;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+#get-started-button:hover {
+    background-color: #fb8500;
+}
+
+/* === Features Section === */
+#features {
+    background-color: #fff;
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#features h3 {
+    margin-bottom: 1.5rem;
+    color: #0d3b66;
+}
+
+#features ul {
+    list-style-type: none;
+}
+
+.feature-item {
+    padding: 1rem 0;
+    font-size: 1.125rem;
+    border-bottom: 1px solid #eee;
+}
+
+.feature-item:last-child {
+    border-bottom: none;
+}
+
+/* === Footer === */
+footer {
+    background-color: #0d3b66;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 2rem;
+    margin-top: 3rem;
+}
+
+footer a {
+    color: #ffb703;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

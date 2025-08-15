@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stakewise</title>
+    <link
+     rel="stylesheet"
+    href="{% static 'core/css/styles.css' %}"
+>
+<script
+  src="{% static 'core/js/script.js' %}"
+  defer
+></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="logo">
+                <h1>Stakewise</h1>
+            </div>
+            <div id="nav-links">
+                <a href="login.html" id="login-link">Login</a>
+                <a href="register.html" id="register-link">Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h2>Rise to the Challenge.</h2>
+            <p>Stakewise is your go-to platform for fast, fair, and fun wagers on sports events. Deposit, bet, and track your wins in real time.</p>
+            <a href="register.html" id="get-started-button">Get Started</a>
+        </section>
+
+        <section id="features">
+            <h3>Why Choose Stakewise?</h3>
+            <ul>
+                <li class="feature-item">Safe deposits and withdrawals</li>
+                <li class="feature-item">47% house edge for balanced odds</li>
+                <li class="feature-item">Instant results and transparent payouts</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Stakewise. All rights reserved.</p>
+        <a href="#terms" id="terms-link">Terms &amp; Privacy</a>
+    </footer>
+</body>
+</html>

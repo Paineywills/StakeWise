@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Stakewise</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="logo">
+                <h1>Stakewise</h1>
+            </div>
+            <div id="nav-links">
+                <a href="login.html" id="login-link" class="active">Login</a>
+                <a href="register.html" id="register-link">Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="login" aria-labelledby="login-heading">
+            <h2 id="login-heading">Login</h2>
+            <div id="error-msg" aria-live="polite"></div>
+            <div id="success-msg" aria-live="polite"></div>
+            <form action="/login" method="post">
+                <!-- {% csrf_token %} for Django later -->
+                <div class="form-group">
+                    <label for="login-username">Email or Username</label>
+                    <input type="text" id="login-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit">Login</button>
+                    <a href="#forgot-password" id="forgot-password-link">Forgot Password?</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Stakewise. All rights reserved.</p>
+        <a href="#terms" id="terms-link">Terms &amp; Privacy</a>
+    </footer>
+</body>
+</html>

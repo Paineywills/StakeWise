@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register - Stakewise</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="logo">
+                <h1>Stakewise</h1>
+            </div>
+            <div id="nav-links">
+                <a href="login.html" id="login-link">Login</a>
+                <a href="register.html" id="register-link" class="active">Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="register" aria-labelledby="register-heading">
+            <h2 id="register-heading">Register</h2>
+            <div id="error-msg" aria-live="polite"></div>
+            <div id="success-msg" aria-live="polite"></div>
+            <form action="/register" method="post">
+                <!-- {% csrf_token %} for Django later -->
+                <div class="form-group">
+                    <label for="reg-name">Full Name</label>
+                    <input type="text" id="reg-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-confirm-password">Confirm Password</label>
+                    <input type="password" id="reg-confirm-password" name="confirm_password" required>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="reg-terms" name="terms" required>
+                    <label for="reg-terms">I agree to the <a href="#terms">Terms &amp; Privacy</a></label>
+                </div>
+                <div class="form-actions">
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Stakewise. All rights reserved.</p>
+        <a href="#terms" id="terms-link">Terms &amp; Privacy</a>
+    </footer>
+</body>
+</html>
