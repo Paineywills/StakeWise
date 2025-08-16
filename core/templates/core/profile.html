@@ -1,0 +1,74 @@
+{% extends "core/base.html" %}
+{% block title %}Profile | Stakewise{% endblock %}
+
+{% block content %}
+<section class="profile-container">
+  <h2>My Profile</h2>
+
+  <div class="balance-box">
+    <strong>Current Balance:</strong>
+    <span>₵{{ balance }}</span>
+  </div>
+
+  <hr>
+
+  <h3>Bet History</h3>
+  {% if wagers %}
+    <table>
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Outcome</th>
+          <th>Stake</th>
+          <th>Odds</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for wager in wagers %}
+          <tr>
+            <td>{{ wager.outcome.market.event.name }}</td>
+            <td>{{ wager.outcome.name }}</td>
+            <td>₵{{ wager.stake }}</td>
+            <td>{{ wager.odds }}</td>
+            <td>{{ wager.timestamp|date:"M d, Y H:i" }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No bets yet.</p>
+  {% endif %}
+
+  <hr>
+
+  <h3>Transaction History</h3>
+  {% if transactions %}
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tx in transactions %}
+          <tr>
+            <td>{{ tx.transaction_type|title }}</td>
+            <td>₵{{ tx.amount }}</td>
+            <td>{{ tx.created_at|date:"M d, Y H:i" }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No transactions yet.</p>
+  {% endif %}
+
+  <div class="profile-actions">
+    <a href="{% url 'deposit' %}">Deposit Funds</a> |
+    <a href="{% url 'withdraw' %}">Withdraw Funds</a>
+  </div>
+</section>
+{% endblock %}

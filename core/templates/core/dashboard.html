@@ -1,0 +1,72 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Dashboard | Stakewise{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+
+  <!-- Welcome Message -->
+  <h1>Betting Dashboard</h1>
+  <p>Welcome, {{ request.user.username }}!</p>
+
+  <!-- Top Navigation (Profile & Logout) -->
+  <div class="top-nav">
+    <div id="profile-btn" class="profile-icon">👤</div>
+    <div id="profile-menu" class="hidden profile-dropdown">
+      <ul>
+<li><a href="{% url 'profile_view' %}">View Profile</a></li>        
+        <li><a href="{% url 'deposit_view' %}">Deposit</a></li>
+        <li><a href="{% url 'withdraw_view' %}">Withdraw</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Betting Events -->
+  <section id="betting-panel">
+    <h2>Upcoming Matches</h2>
+    <p>Select your match, enter your stake, and place a bet.</p>
+
+    <!-- Example Event -->
+    <div class="event">
+      <h3>Ghana 🇬🇭 vs Nigeria 🇳🇬</h3>
+      <div class="market">
+        <button 
+          data-event="Ghana vs Nigeria"
+          data-market="Winner"
+          data-outcome="Ghana"
+          data-odds="2.5">
+          Ghana @ 2.5
+        </button>
+        <button 
+          data-event="Ghana vs Nigeria"
+          data-market="Winner"
+          data-outcome="Nigeria"
+          data-odds="2.8">
+          Nigeria @ 2.8
+        </button>
+      </div>
+    </div>
+
+    <!-- More events can be looped here later -->
+  </section>
+
+  <!-- Bet Slip Section -->
+  <section id="bet-slip">
+    <h2>Your Bet Slip</h2>
+    <ul id="bet-slip-list"></ul>
+    <button id="clear-slip" type="button">Clear Slip</button>
+
+    <form id="bet-form">
+      <input type="number" name="stake" placeholder="Enter stake" required min="1">
+      <button type="submit">Place Bet</button>
+    </form>
+  </section>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'core/js/dashboard.js' %}"></script>
+{% endblock %}

@@ -9,10 +9,43 @@
   {% block extra_css %}{% endblock %}
 </head>
 <body>
-  <header>…</header>
-  <main>{% block content %}{% endblock %}</main>
-  <footer>…</footer>
-  <script src="{% static 'core/js/script.js' %}" defer></script>
+  {% if messages %}
+  <ul id="flash-messages">
+    {% for msg in messages %}
+      <li class="{{ msg.tags }}">{{ msg }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+  <header>
+    <nav>
+      <div id="logo">
+        <h1><a href="{% url 'core:home' %}" style="text-decoration:none;color:inherit;">Stakewise</a></h1>
+      </div>
+      <div id="nav-links">
+       {% if user.is_authenticated %}
+        <a href="{% url 'core:logout' %}">Logout</a>
+  {% else %}
+        <a href="{% url 'core:login' %}">Login</a>
+        <a href="{% url 'core:register' %}">Sign Up</a>
+  {% endif %}
+        <a href="{% url 'core:dashboard' %}">Dashboard</a>
+  
+
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+
+  <footer>
+    <p>© 2025 Stakewise. All rights reserved.</p>
+    <a href="{% url 'core:terms_privacy' %}" id="terms-privacy">Terms &amp; Privacy</a>  
+  </footer>
+
+
   {% block extra_js %}{% endblock %}
 </body>
 </html>
