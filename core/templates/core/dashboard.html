@@ -4,69 +4,147 @@
 {% block title %}Dashboard | Stakewise{% endblock %}
 
 {% block content %}
-<div class="dashboard-container">
+<div class="dashboard-container min-h-screen bg-gray-50 px-4 md:px-8">
 
-  <!-- Welcome Message -->
-  <h1>Betting Dashboard</h1>
-  <p>Welcome, {{ request.user.username }}!</p>
 
-  <!-- Top Navigation (Profile & Logout) -->
-  <div class="top-nav">
-    <div id="profile-btn" class="profile-icon">👤</div>
-    <div id="profile-menu" class="hidden profile-dropdown">
-      <ul>
-<li><a href="{% url 'profile_view' %}">View Profile</a></li>        
-        <li><a href="{% url 'deposit_view' %}">Deposit</a></li>
-        <li><a href="{% url 'withdraw_view' %}">Withdraw</a></li>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-      </ul>
+  <!-- Top Navigation -->
+  <header class="flex justify-between items-center p-4 bg-gray-100 shadow-md">
+    <div class="logo text-2xl font-bold">Stakewise</div>
+    
+    <!-- Main Tabs -->
+    <nav class="flex space-x-6">
+      <div class="relative group">
+        <a href="{% url 'core:sports' %}" class="hover:text-blue-500">Sports</a>
+        <div class="absolute hidden group-hover:block bg-white shadow-md rounded mt-1 py-2 w-40">
+          <a href="#" class="block px-4 py-1 hover:bg-gray-100">Football</a>
+          <a href="#" class="block px-4 py-1 hover:bg-gray-100">Basketball</a>
+        </div>
+      </div>
+      <div class="relative group">
+        <a href="{% url 'core:live' %}" class="hover:text-blue-500">Live</a>
+        <div class="absolute hidden group-hover:block bg-white shadow-md rounded mt-1 py-2 w-40">
+          <a href="#" class="block px-4 py-1 hover:bg-gray-100">Live Football</a>
+          <a href="#" class="block px-4 py-1 hover:bg-gray-100">Live Basketball</a>
+        </div>
+      </div>
+      <a href="{% url 'core:win_games' %}" class="hover:text-blue-500">Win Games</a>
+      <a href="{% url 'core:casino' %}" class="hover:text-blue-500">Casino</a>
+      <a href="{% url 'core:live_casino' %}" class="hover:text-blue-500">Live Casino</a>
+      <a href="{% url 'core:more' %}" class="hover:text-blue-500">More</a>
+    </nav>
+
+    <!-- Profile Dropdown -->
+    <div class="relative ml-4">
+      <div id="profile-btn" class="cursor-pointer p-2 bg-gray-200 rounded-full hover:bg-gray-300">👤</div>
+      <div id="profile-menu" class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-50">
+        <ul class="flex flex-col">
+          <li><a href="{% url 'core:withdraw_view' %}" class="block px-4 py-2 hover:bg-gray-100">Withdraw</a></li>
+          <li><a href="{% url 'core:deposit_view' %}" class="block px-4 py-2 hover:bg-gray-100">Deposit</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Balance</a></li>
+          <li><a href="{% url 'core:profile_view' %}" class="block px-4 py-2 hover:bg-gray-100">Profile Settings</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">App Settings</a></li>
+          <li><a href="{% url 'core:logout' %}" class="block px-4 py-2 hover:bg-gray-100">Logout</a></li>
+          <li><a href="{% url 'core:about_us' %}" class="block px-4 py-2 hover:bg-gray-100">About Us</a></li>
+        </ul>
+      </div>
     </div>
+  </header>
+
+  <!-- Picture Slider -->
+  <section id="picture-slider" class="relative overflow-hidden mt-4 h-80 md:h-96 bg-gray-200 flex justify-center items-center">
+  <div class="slides flex transition-transform duration-500">
+    <img src="{% static 'core/images/slider1.jpg' %}" class="w-full h-80 md:h-96 object-contain">
+    <img src="{% static 'core/images/slider2.jpg' %}" class="w-full h-80 md:h-96 object-contain">
+    <img src="{% static 'core/images/slider3.jpg' %}" class="w-full h-80 md:h-96 object-contain">
   </div>
+</section>
+
+
+  <!-- Games Section -->
+  <section id="games" class="mt-8 px-4">
+    <h2 class="text-xl font-bold mb-4">Games</h2>
+    <div class="flex space-x-4 mb-4">
+      <button class="game-tab active">All Games</button>
+      <button class="game-tab">For You</button>
+      <button class="game-tab">Best</button>
+      <button class="game-tab">Slot</button>
+      <button class="game-tab">Lotteries</button>
+      <button class="game-tab">Card Games</button>
+      <button class="game-tab">Dice</button>
+    </div>
+    <div id="game-list" class="grid grid-cols-4 gap-4">
+      <!-- Loop your games here -->
+      <div class="game-card bg-gray-100 p-4 rounded shadow">Game 1</div>
+      <div class="game-card bg-gray-100 p-4 rounded shadow">Game 2</div>
+      <div class="game-card bg-gray-100 p-4 rounded shadow">Game 3</div>
+      <div class="game-card bg-gray-100 p-4 rounded shadow">Game 4</div>
+    </div>
+  </section>
 
   <!-- Betting Events -->
-  <section id="betting-panel">
+  <section id="betting-panel" class="mt-8 px-4">
     <h2>Upcoming Matches</h2>
     <p>Select your match, enter your stake, and place a bet.</p>
 
-    <!-- Example Event -->
     <div class="event">
       <h3>Ghana 🇬🇭 vs Nigeria 🇳🇬</h3>
-      <div class="market">
-        <button 
-          data-event="Ghana vs Nigeria"
-          data-market="Winner"
-          data-outcome="Ghana"
-          data-odds="2.5">
-          Ghana @ 2.5
-        </button>
-        <button 
-          data-event="Ghana vs Nigeria"
-          data-market="Winner"
-          data-outcome="Nigeria"
-          data-odds="2.8">
-          Nigeria @ 2.8
-        </button>
+      <div class="market flex space-x-2 mt-2">
+        <button data-event="Ghana vs Nigeria" data-market="Winner" data-outcome="Ghana" data-odds="2.5">Ghana @ 2.5</button>
+        <button data-event="Ghana vs Nigeria" data-market="Winner" data-outcome="Nigeria" data-odds="2.8">Nigeria @ 2.8</button>
       </div>
     </div>
-
-    <!-- More events can be looped here later -->
   </section>
 
-  <!-- Bet Slip Section -->
-  <section id="bet-slip">
+  <!-- Bet Slip -->
+  <section id="bet-slip" class="mt-8 px-4">
     <h2>Your Bet Slip</h2>
     <ul id="bet-slip-list"></ul>
     <button id="clear-slip" type="button">Clear Slip</button>
 
-    <form id="bet-form">
+    <form id="bet-form" class="mt-2">
       <input type="number" name="stake" placeholder="Enter stake" required min="1">
       <button type="submit">Place Bet</button>
     </form>
   </section>
 
+  <!-- Footer -->
+  <footer class="mt-12 p-4 bg-gray-100 flex justify-between items-center">
+    <div>Customer Support</div>
+    <div class="flex space-x-4">
+      <a href="#"><img src="{% static 'core/images/facebook.svg' %}" alt="Facebook" class="w-6 h-6"></a>
+      <a href="#"><img src="{% static 'core/images/twitter.svg' %}" alt="Twitter" class="w-6 h-6"></a>
+      <a href="#"><img src="{% static 'core/images/instagram.svg' %}" alt="Instagram" class="w-6 h-6"></a>
+      <a href="#"><img src="{% static 'core/images/linkedin.svg' %}" alt="LinkedIn" class="w-6 h-6"></a>
+    </div>
+  </footer>
 </div>
 {% endblock %}
 
 {% block extra_js %}
 <script src="{% static 'core/js/dashboard.js' %}"></script>
+<script>
+  // Profile dropdown
+  const profileBtn = document.getElementById('profile-btn');
+  const profileMenu = document.getElementById('profile-menu');
+
+  profileBtn.addEventListener('click', () => {
+    profileMenu.classList.toggle('hidden');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+      profileMenu.classList.add('hidden');
+    }
+  });
+
+  // Picture slider
+  const slides = document.querySelector('#picture-slider .slides');
+  const totalSlides = slides.children.length;
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % totalSlides;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }, 5000);
+</script>
 {% endblock %}

@@ -1,0 +1,313 @@
+/* =============================
+   STAKEWISE BASE THEME (Dark + Gold Sportsbook Vibe)
+   ============================= */
+
+/* --- RESET & BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #0b0e16; /* sportsbook dark */
+  color: #e6e6e6;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- FLASH MESSAGES --- */
+#flash-messages {
+  list-style: none;
+  padding: 0.8rem 1.2rem;
+  margin: 0;
+  text-align: center;
+}
+
+#flash-messages li {
+  display: inline-block;
+  margin: 0.3rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+#flash-messages li.success {
+  background: #0f5132;
+  color: #d1e7dd;
+  border: 1px solid #198754;
+}
+
+#flash-messages li.error {
+  background: #842029;
+  color: #f8d7da;
+  border: 1px solid #dc3545;
+}
+
+#flash-messages li.info {
+  background: #055160;
+  color: #cff4fc;
+  border: 1px solid #0dcaf0;
+}
+
+/* --- HEADER --- */
+header {
+  background: #121826;
+  border-bottom: 3px solid #d4af37; /* gold */
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo h1 a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #d4af37;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+  transition: color 0.3s ease;
+}
+
+#logo h1 a:hover {
+  color: #ffd700;
+}
+
+#nav-links a {
+  color: #f1f1f1;
+  text-decoration: none;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+#nav-links a:hover {
+  background-color: rgba(212, 175, 55, 0.15);
+  color: #ffd700;
+}
+
+/* --- MAIN --- */
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- FOOTER --- */
+footer {
+  background: #121826;
+  color: #bbb;
+  text-align: center;
+  padding: 1rem;
+  border-top: 3px solid #d4af37;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #d4af37;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
+
+footer a:hover {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
+/* ========== GLOBAL ========= */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #0d0d0d;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #000;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4);
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, #f5d76e, #d4af37);
+}
+
+.btn-outline {
+  border: 2px solid #d4af37;
+  color: #d4af37;
+}
+.btn-outline:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+/* ========== SECTIONS ========= */
+.home-container section {
+  padding: 4rem 8%;
+  text-align: center;
+}
+
+.section-dark {
+  background: #1a1a1a;
+}
+
+.section-light {
+  background: #141414;
+}
+
+/* ========== HERO ========= */
+.hero {
+  background: url("../images/hero-bg.jpg") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 8% 8rem;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.hero .highlight {
+  color: #d4af37;
+}
+
+/* ========== FEATURED MATCHES ========= */
+.match-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.match-card {
+  background: #111;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #2c2c2c;
+  transition: 0.3s ease;
+}
+.match-card:hover {
+  border-color: #d4af37;
+  transform: translateY(-4px);
+}
+.match-card h3 {
+  color: #d4af37;
+}
+.odds {
+  margin-top: 1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+
+/* ========== LIVE SCORES ========= */
+.scores-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 2rem auto 0;
+}
+.score-item {
+  background: #111;
+  padding: 1rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #2c2c2c;
+}
+.score-item span:first-child {
+  font-weight: 600;
+}
+
+/* ========== PROMOTIONS ========= */
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.promo-card {
+  background: #111;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #2c2c2c;
+}
+.promo-card h3 {
+  color: #d4af37;
+  margin-bottom: 0.5rem;
+}
+
+/* ========== FEATURES ========= */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem auto 0;
+  max-width: 600px;
+}
+.feature-list li {
+  background: #111;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #2c2c2c;
+  text-align: left;
+}
+
+/* ========== CTA ========= */
+.cta {
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #000;
+  padding: 4rem 8%;
+}
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.cta p {
+  margin-bottom: 1.5rem;
+}

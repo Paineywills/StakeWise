@@ -1,21 +1,109 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}Stakewise{% endblock %}
+{% block title %}Stakewise | Bet Smarter{% endblock %}
 
 {% block content %}
-<section id="hero">
-  <h2>Rise to the Challenge.</h2>
-  <p>Stakewise is your go-to platform for fast, fair, and fun wagers on sports events. Deposit, bet, and track your wins in real time.</p>
-  <a href="{% url 'register' %}" id="get-started-button">Get Started</a>
-</section>
+<div class="home-container">
 
-<section id="features">
-  <h3>Why Choose Stakewise?</h3>
-  <ul>
-    <li class="feature-item">Safe deposits and withdrawals</li>
-    <li class="feature-item">47% house edge for balanced odds</li>
-    <li class="feature-item">Instant results and transparent payouts</li>
-  </ul>
-</section>
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>Welcome to <span class="highlight">Stakewise</span></h1>
+      <p>Your go-to platform for fast, fair, and fun wagers on sports events.</p>
+      <div class="hero-buttons">
+        <a href="{% url 'core:register' %}" class="btn btn-gold">Get Started</a>
+        <a href="{% url 'core:login' %}" class="btn btn-outline">Login</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Matches -->
+  <section id="featured-matches" class="section-dark">
+    <h2>🔥 Featured Matches</h2>
+    <div class="match-grid">
+      <div class="match-card">
+        <h3>Ghana 🇬🇭 vs Nigeria 🇳🇬</h3>
+        <p>Kick-off: Today, 7:00 PM</p>
+        <div class="odds">
+          <span>Ghana @ 2.5</span>
+          <span>Nigeria @ 2.8</span>
+        </div>
+      </div>
+      <div class="match-card">
+        <h3>Barcelona 🇪🇸 vs Real Madrid 🇪🇸</h3>
+        <p>Kick-off: Tomorrow, 9:00 PM</p>
+        <div class="odds">
+          <span>Barcelona @ 1.9</span>
+          <span>Real Madrid @ 2.1</span>
+        </div>
+      </div>
+      <div class="match-card">
+        <h3>USA 🇺🇸 vs Brazil 🇧🇷</h3>
+        <p>Kick-off: Friday, 11:00 PM</p>
+        <div class="odds">
+          <span>USA @ 3.0</span>
+          <span>Brazil @ 1.5</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Scores Preview -->
+  <section id="live-scores" class="section-light">
+    <h2>📊 Live Scores</h2>
+    <div class="scores-list">
+      <div class="score-item">
+        <span>Man City 2 - 1 Arsenal</span>
+        <span>85'</span>
+      </div>
+      <div class="score-item">
+        <span>Lakers 89 - 92 Warriors</span>
+        <span>Q4</span>
+      </div>
+      <div class="score-item">
+        <span>Serena Williams 1 - 1 Osaka</span>
+        <span>Set 3</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotions -->
+  <section id="promotions" class="section-dark">
+    <h2>🎁 Promotions</h2>
+    <div class="promo-grid">
+      <div class="promo-card">
+        <h3>Welcome Bonus</h3>
+        <p>Get 100% extra on your first deposit up to $200.</p>
+      </div>
+      <div class="promo-card">
+        <h3>Weekly Cashback</h3>
+        <p>Earn 10% cashback on all your weekly losses.</p>
+      </div>
+      <div class="promo-card">
+        <h3>VIP Club</h3>
+        <p>Exclusive perks for our loyal players. Climb the ranks!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Stakewise -->
+  <section id="features" class="section-light">
+    <h2>Why Choose Stakewise?</h2>
+    <ul class="feature-list">
+      <li>✅ Safe deposits and withdrawals</li>
+      <li>✅ Competitive odds with fair play</li>
+      <li>✅ Instant results and transparent payouts</li>
+      <li>✅ 24/7 customer support</li>
+    </ul>
+  </section>
+
+  <!-- Call to Action -->
+  <section id="cta" class="cta">
+    <h2>Ready to Bet Smarter?</h2>
+    <p>Join thousands of players enjoying the ultimate betting experience.</p>
+    <a href="{% url 'core:register' %}" class="btn btn-gold">Sign Up Free</a>
+  </section>
+
+</div>
 {% endblock %}

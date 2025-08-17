@@ -14,7 +14,7 @@ def home(request):
 
 
 def terms_privacy(request):
-    return render(request, 'core/terms-privacy.html')
+    return render(request, 'core/terms_privacy.html')
 
 
 # -----------------------------
@@ -45,7 +45,7 @@ def register_view(request):
             Profile.objects.create(user=user, balance=0)
             login(request, user)
             messages.success(request, f'Welcome, {user.username}!')
-            return redirect('dashboard')
+            return redirect('core:dashboard')
     else:
         form = CustomUserCreationForm()
 
@@ -96,7 +96,7 @@ def place_bet(request, outcome_id):
                 profile.balance -= stake
                 profile.save(update_fields=['balance'])
                 messages.success(request, f'Bet placed: {outcome.name} @ {outcome.decimal_odds}')
-            return redirect('dashboard')
+            return redirect('core:dashboard')
     else:
         form = BetForm()
 
@@ -133,7 +133,7 @@ def deposit_view(request):
             amount = form.cleaned_data['amount']
             profile.deposit(amount)
             messages.success(request, f'Deposited ₵{amount} successfully!')
-            return redirect('profile')
+            return redirect('core:profile')
     else:
         form = DepositForm()
     return render(request, 'core/deposit.html', {'form': form})
@@ -151,7 +151,41 @@ def withdraw_view(request):
                 messages.success(request, f'Withdrew ₵{amount} successfully!')
             except ValueError as e:
                 messages.error(request, str(e))
-            return redirect('profile')
+            return redirect('core:profile')
     else:
         form = WithdrawForm()
     return render(request, 'core/withdraw.html', {'form': form})
+
+
+def sports(request):
+    """
+    Display a page of upcoming sports events.
+    """
+    # Get all upcoming events (assuming 'upcoming' status)
+    events = Event.objects.filter(status='upcoming').order_by('start_time')
+
+    return render(request, 'core/sports.html', {
+        'events': events,
+        'page_title': 'Sports',
+    })
+
+def live(request):
+    return render(request, 'core/live.html')
+
+def win_games(request):
+    return render(request, 'core/win_games.html')
+
+def casino(request):
+    return render(request, 'core/casino.html')
+
+def live_casino(request):
+    return render(request, 'core/live_casino.html')
+
+def more(request):
+    return render(request, 'core/more.html')
+
+def about_us(request):
+    """
+    Renders the about us page.
+    """
+    return render(request, 'core/about_us.html')
