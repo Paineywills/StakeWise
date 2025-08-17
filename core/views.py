@@ -14,7 +14,7 @@ def home(request):
 
 
 def terms_privacy(request):
-    return render(request, 'core/terms_privacy.html')
+    return render(request, 'core/terms-privacy.html')
 
 
 # -----------------------------

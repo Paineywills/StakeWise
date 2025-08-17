@@ -6,7 +6,7 @@
 <div id="register-container">
   <h2>Create an Account</h2>
 
-  <form method="post" action="{% url 'core:register' %}">
+  <form method="post" action="{% url 'register' %}">
     {% csrf_token %}
     {{ form.non_field_errors }}
 
@@ -23,7 +23,7 @@
 
   <p>
     Already have an account?
-    <a href="{% url 'core:login' %}">Login here</a>
+    <a href="{% url 'login' %}">Login here</a>
   </p>
 </div>
 {% endblock %}
